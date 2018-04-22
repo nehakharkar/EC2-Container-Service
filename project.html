@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Grad Project  </title>
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    </head>
+<body >
+    
+    <div class="header">
+        <h1>Assignment: EC2 Container Service</h1> <div class="fileUpload btn btn-primary">
+    
+</div>
+    
+    
+    </div>
+    <hr width="60%">
+    <p class="start"> <b> Due: </b>   Apr 31 by 11:59pm <span class="points"> <b>Points: </b> 100 </span> <span class="submit"> <b>Submitting: </b> a file upload </span> </p>
+    <p class="end"> <b> Available: </b> Apr 21 at 11am - Dec 31 at 11:59pm 21 days  </p>       
+    <hr width="60%">
+    <p> <span class="token"> <b> Learning Objectives</b></span></p>
+    <p> In this assignment you will learn how to:  </p>
+    <p>
+    1. How to use Amazon EC2 Container Service<br>
+    2. Build container images<br>
+    3. Define your application<br>
+    4. Launch containers<br>     
+    5. Manage Containers<br>
+    </p>
+    <p> <span class="token"> <b> Pre-requistes:</b></span></p>
+    1. Download Amazon CLI<br>
+    2. You should download and make sure your able to use docker in your machine<br>
+    </p>
+
+    <p> <span class="token"> <b> Applications:</b></span></p>
+    1. Batch Processing<br>
+    2. Microservices<br>
+    3. Automated CICD Deployment
+    </p>
+    <p> <span class="token"> <b> Getting Started:</b></span></p>
+    <p> Below are few links which will give you more information about the features of ECS</p>
+    <a href="https://www.youtube.com/watch?v=eq4wL2MiNqo">Core Concepts</a><br>
+    <a href="https://www.youtube.com/watch?v=o_qSS4S1g34&vl=en">Writing Task Definition</a><br>
+    <a href="https://www.youtube.com/watch?v=8XwNPX4AV2M&t=2s">Task Placement</a><br>
+    <a href="https://www.youtube.com/watch?v=hu7SyJHWJZ0">Load Balancing</a><br>
+    <a href="https://www.youtube.com/watch?v=YEvU6uIckDc&t=4s">Auto Scaling</a><br>
+    <a href="https://www.youtube.com/watch?v=5HnJjoW2xv8">CloudWatch Monitoring for Containers</a><br>
+    </p>
+
+
+    <p> <span class="require"> <b> Steps to be Followed: </b>  </span>  </p>
+    <p>
+
+    1. Create your docker file : An application ready to be deployed. <br><br>
+    2. Go to Amazon ECS (Elastic Container Service) to get started, click on Repositories to create a new one.<br><br>
+    3. Name the Repository as: ecs-assignment and click Next<br> This will create the Repository, save the Repository URI . <br><br>
+    <img class="hint_img" src="images/addrepo.png"/><br><br>
+    4. Now follow the steps given and run the commands to build, tag and push the docker image. 
+    <br><br>
+    <img class="hint_img" src="images/buildimg.png"/><br><br>
+    <img class="hint_img" src="images/repostep1.png"/><br><br>
+    <img class="hint_img" src="images/repostep2,3.png"/><br><br>
+    <img class="hint_img" src="images/repostep4.png"/><br><br>
+    5. Go to Cluster part in the Amazon ECS Dashboard to create a new cluster. Select appropriate cluster template.<br> For this assignment we are going to select EC2 Linux + Networking template, click next.<br><br>
+    6. Type cluster name as ECS-cluster-demo, select EC2 Instance type as t2.micro. <br>
+    Select appropriate key pair. And Create an VPC which help in configuring the container instances to use.<br>
+    Select the created VPC,subnets and security groups and click Create to create the cluster.<br><br>
+
+    <img class="hint_img" src="images/cluster1.png"/><br><br>
+    <img class="hint_img" src="images/cluster2.png"/><br><br>
+    <img class="hint_img" src="images/clustersucess.png"/><br><br>
+    7. Go to ECS Dashboard to create a task. Task defines no of containers to be created. We would create a single container. <br>
+    Click on task Definition and click on create new task Definition. Select EC2 and click on next button.<br>
+    Name the task Definition as ECS-task-demo.<br><br>
+    <img class="hint_img" src="images/newtask.png"/><br><br>
+
+    8. Click on Add Container to add a container instance. <br>
+    Name the container as ECS-container-demo, enter the saved Repository URI from step in Image.<br>
+    Enter memory limits as 300, host port as 80 and container port as 8000, cpu limits as 10 leaving all the other values as it is. <br><br>    
+    <img class="hint_img" src="images/addcontainer.png"/><br><br>
+    Click on Add button after entering all the values and click create.<br><br>
+    9. Now we will create a service within the cluster. Go to Clusters in ECS Dashboard.<br>
+    Select our created cluster and click create in the services tab.<br><br>
+    <img class="hint_img" src="images/createservice.png"/><br><br>
+    10. Select EC2 as launch type, select appropriate task and cluster from the dropdown.<br> Name the service as ECS-service-demo and enter no of tasks as 1.<br><br>
+    <img class="hint_img" src="images/confservice.png"/><br><br>
+    Click next three times and click on create service.<br><br>
+    <img class="hint_img" src="images/servicesuccess.png"/><br><br>
+
+    11. Thus our EC2 Instance is now launched. Connect it via SSH and save the screenshot as the <b>linux-proof.png</b>
+    <img class="hint_img" src="images/instancespinned.png"/><br><br>
+    12. Similarly create the windows instance and save the screenshot as <b>windows-proof.png</b> 
+    
+    </p>
+    </body>
+
+
+    <div>
+        <div><h3>Submit your files</h3>
+                Upload your both the screenshot file in a single zip file named ECS.zip and upload it.	
+        <form  method="post" enctype="multipart/form-data" onSubmit="alert('File has uploaded successfully');">
+            <input type="file" name="fileToUpload" id="fileToUpload" ><br/><br/>
+            <input type="submit" value="Upload" name="submit" >
+        </form>
+        </div>
+    </div>
+
+</html>

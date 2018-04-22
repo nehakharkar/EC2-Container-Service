@@ -1,0 +1,44 @@
+
+body{
+	width: 100%;
+	min-height: 100%; 
+	background-position-y: 0px, center; 
+	background-position-x: center; 
+	margin: 0px !important;
+	background-attachment: fixed; 
+    margin: 30px !important;
+    position: relative;
+    right: -250px;
+    background-color: rgb(125, 199, 199);
+    font-family: 'Calibri';
+}
+.token{
+   font-size: 160%;
+}
+hr{
+    position: relative;
+    right: 330px;
+}
+.points{
+    position: relative;
+    right: -90px;
+}
+.submit{
+    position: relative;
+    right: -200px;
+}
+.require{
+   
+    font-size: 160%;
+}
+.hint_img{
+	max-width: 60%;
+    left: 30%;
+}
+.div_img{
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+    margin-right: 30px;
+}
+
